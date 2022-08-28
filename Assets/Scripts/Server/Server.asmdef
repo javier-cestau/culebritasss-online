@@ -1,0 +1,27 @@
+{
+    "name": "Server",
+    "rootNamespace": "",
+    "references": [
+        "Unity.Burst",
+        "Unity.Entities",
+        "Unity.Entities.Hybrid",
+        "Unity.Transforms",
+        "Unity.Collections",
+        "Unity.Mathematics",
+        "Unity.Networking.Transport",
+        "Unity.NetCode",
+        "Unity.Rendering.Hybrid",
+        "ClientAndServer"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "!UNITY_CLIENT"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

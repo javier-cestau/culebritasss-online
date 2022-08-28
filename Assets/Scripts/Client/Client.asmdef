@@ -1,0 +1,18 @@
+﻿{
+  "name": "Client",
+  "references": [
+    "Unity.Burst",
+    "Unity.Entities",
+    "Unity.Entities.Hybrid",
+    "Unity.Transforms",
+    "Unity.Collections",
+    "Unity.Mathematics",
+    "Unity.Networking.Transport",
+    "Unity.NetCode",
+    "Unity.Rendering.Hybrid",
+    "ClientAndServer"
+  ],
+  "defineConstraints": [
+    "!UNITY_SERVER"
+  ]
+}

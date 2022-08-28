@@ -1,0 +1,22 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/TitleScreenUI.uss?fileID=7433441132597879392&amp;guid=ff106a8cd4678ee41826e6adb26c0264&amp;type=3#TitleScreenUI" />
+    <ui:ScrollView class="screen-scroll-container">
+        <ui:VisualElement name="screen" class="screen HostGameScreen">
+            <ui:VisualElement name="header" class="header">
+                <ui:Label text="Culebritasss" name="title" class="title" style="margin-top: 0;" />
+                <ui:IMGUIContainer name="moetsi-logo" class="logo" style="background-image: none;" />
+                <ui:Button text="Salir" name="quit-button" class="quit-button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="main-content" class="main-content">
+                <ui:VisualElement name="join-local-title" class="section-title-container" style="justify-content: center; align-items: center;">
+                    <ui:Label text="Bienvenido" name="join-a-local-game" class="section-title" />
+                    <ui:VisualElement name="game-ip-container" class="data-section">
+                        <ui:TextField picking-mode="Ignore" value="HostIPValue" text="CaraETabla" name="game-ip" readonly="false" class="data-section-input" />
+                        <ui:Label text="Tu nombre" display-tooltip-when-elided="True" name="game-ip-label" class="data-section-label" />
+                    </ui:VisualElement>
+                    <ui:Button text="Unirse" display-tooltip-when-elided="true" name="join-local-game" style="align-items: flex-end; height: 21px; width: 332px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:ScrollView>
+</ui:UXML>

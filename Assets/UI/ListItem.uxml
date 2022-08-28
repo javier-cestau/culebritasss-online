@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/TitleScreenUI.uss?fileID=7433441132597879392&amp;guid=ff106a8cd4678ee41826e6adb26c0264&amp;type=3#TitleScreenUI" />
+    <ui:VisualElement name="row" focusable="false" class="row" style="margin-top: 10px;">
+        <ui:VisualElement name="game-name-data" class="game-name-data">
+            <ui:Label text="El unico q hay" name="game-name" class="list-item-game-name" />
+        </ui:VisualElement>
+        <ui:Button text="Unirme" display-tooltip-when-elided="True" name="join-local-game" class="blue-button list-item-button" />
+    </ui:VisualElement>
+</ui:UXML>
