@@ -64,7 +64,7 @@ jobs:
       with:
         unity-version: 2021.3.4f1
     - name: Building Game server
-      run: "'C:\\Program Files\\Unity\\Hub\\Editor\\2021.3.4f1\\Editor\\Unity.exe' -batchmode -quit -logFile out.log -projectPath './' -executeMethod 'Editor.Builder.Build' -platform 'Win-Server'"
+      run: "'C:\\Program Files\\Unity\\Hub\\Editor\\2021.3.4f1\\Editor\\Unity.exe' -- -batchmode -quit -logFile out.log -projectPath './' -executeMethod 'Editor.Builder.Build' -platform 'Win-Server'"
     - uses: actions/upload-artifact@v2
       with:
         name: build-server
