@@ -53,11 +53,19 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+    - name: Caching Unity
+      id: cache-primes
+      uses: actions/cache@v3
+      with:
+        path: "C:/Program Files/Unity"
+        key: ${{ runner.os }}-unity
     - name: 🎮 Setup Unity
       uses: kuler90/setup-unity@v1.0.8
-    - name: Set selected color
-      run: ls  "C:\Program Files\Unity\Hub\Editor"     
-    - name: 📂 Sync files
+      with:
+        unity-version: 2021.3.4f1
+    - name: Building Game server
+      run: "'C:\\Program Files\\Unity\\Hub\\Editor\\2021.3.4f1\\Editor\\Unity.exe' -batchmode -quit -logFile out.log -projectPath './' -executeMethod 'Editor.Builder.Build' -platform 'Win-Server'"
+    - name: 📂 Pushing Build files
       uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.1
       with:
         ftp_host: ${{ secrets.FTP_HOST }}
