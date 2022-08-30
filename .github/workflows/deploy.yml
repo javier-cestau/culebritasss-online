@@ -25,21 +25,10 @@ jobs:
     - uses: game-ci/unity-builder@v2
       env:
         UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-        UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-        UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
       with:
         targetPlatform: StandaloneWindows64
         unityVersion: 2021.3.4f1
         buildMethod: "Editor.Builder.Build"
-    - uses: yukiarrr/unity-build-action@v0.6.1
-      with:
-        unity-version: 2021.3.4f1
-        unity-username: ${{ secrets.UNITY_USERNAME }}
-        unity-password: ${{ secrets.UNITY_PASSWORD }}
-        unity-serial: ${{ secrets.UNITY_SERIAL }}
-        build-target: 'Windows'
-        execute-method: "Editor.Builder.Build"
-        output-path: "./output.log"
     - name: Debugging with tmate
       uses: mxschmitt/action-tmate@v3.11
     - uses: actions/upload-artifact@v2
