@@ -45,12 +45,13 @@ jobs:
       with:
         path: "'C:\\Program Files\\Unity"
         key: ${{ runner.os }}-unity
+    - name: Building Game server
+      run: '/c/Program\ Files/Unity/Hub/Editor/2021.3.4f1/Editor/Unity.exe -batchmode -quit -logFile out.log -projectPath "./" -executeMethod "Editor.Builder.Build" -platform "Win-Server"'
+      shell: bash
     - name: 🎮 Setup Unity
       uses: kuler90/setup-unity@v1.0.8
       with:
         unity-version: 2021.3.4f1
-    - name: Building Game server
-      run: "'C:\\Program Files\\Unity\\Hub\\Editor\\2021.3.4f1\\Editor\\Unity.exe' -- -batchmode -quit -logFile out.log -projectPath './' -executeMethod 'Editor.Builder.Build' -platform 'Win-Server'"
     - uses: actions/upload-artifact@v2
       with:
         name: build-server
