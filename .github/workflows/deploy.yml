@@ -15,22 +15,37 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Caching Unity
-      uses: actions/cache@v3
+      uses: actions/cache@v2
       with:
-        path: "'C:\\Program Files\\Unity"
-        key: ${{ runner.os }}-unity
-    - name: 🎮 Setup Unity
-      uses: kuler90/setup-unity@v1.0.8
+        path: ./Library
+        key: Library-Culebritasss-windows
+        restore-keys: |
+          Library-Culebritasss-
+          Library-
+    - uses: game-ci/unity-builder@v2
+      env:
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+        UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+      with:
+        targetPlatform: Windows
+        unityVersion: 2021.3.4f1
+        buildMethod: "Editor.Builder.Build"
+    - uses: yukiarrr/unity-build-action@v0.6.1
       with:
         unity-version: 2021.3.4f1
+        unity-username: ${{ secrets.UNITY_USERNAME }}
+        unity-password: ${{ secrets.UNITY_PASSWORD }}
+        unity-serial: ${{ secrets.UNITY_SERIAL }}
+        build-target: 'Windows'
+        execute-method: "Editor.Builder.Build"
+        output-path: "./output.log"
     - name: Debugging with tmate
       uses: mxschmitt/action-tmate@v3.11
-    - name: Building Game server
-      run: "'C:\\Program Files\\Unity\\Hub\\Editor\\2021.3.4f1\\Editor\\Unity.exe' -- -batchmode -quit -logFile out.log -projectPath './' -executeMethod 'Editor.Builder.Build' -platform 'Win-Server'"
     - uses: actions/upload-artifact@v2
       with:
-        name: build-server
-        path: ./Builds/Win-Server
+        name: Build
+        path: build
   deploy:
     needs: build
     name: Deploy
